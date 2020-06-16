@@ -420,7 +420,7 @@ def model(X, Y, layer_dims, learning_rate=0.01, mini_batch_size=64, beta1=0.9, b
             
     plt.plot(costs)
     plt.ylabel("Cost")
-    plt.xlabel("Iteration (per 10 epoch)")
+    plt.xlabel("Iteration (per epoch)")
     plt.title(f"Learning Rate: {learning_rate}")
     plt.show()
     
