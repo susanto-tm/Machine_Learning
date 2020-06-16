@@ -3,11 +3,29 @@
 
 # In[1]:
 
-
+import struct
 import numpy as np
 import matplotlib.pyplot as plt
 import math
-from neural_network_tut import load_data
+
+
+# In[]:
+
+def load_data():
+    with open('mnist/train-labels.idx1-ubyte', 'rb') as labels:
+        magic, n = struct.unpack(">II", labels.read(8))
+        train_labels = np.fromfile(labels, dtype=np.uint8)
+    with open("mnist/train-images.idx3-ubyte", 'rb') as imgs:
+        magic, num, nrows, ncols = struct.unpack(">IIII", imgs.read(16))
+        train_images = np.fromfile(imgs, dtype=np.uint8).reshape(num, 784)
+    with open('mnist/t10k-labels.idx1-ubyte', 'rb') as labels:
+        magic, n = struct.unpack(">II", labels.read(8))
+        test_labels = np.fromfile(labels, dtype=np.uint8)
+    with open("mnist/t10k-images.idx3-ubyte", 'rb') as imgs:
+        magic, num, nrows, ncols = struct.unpack(">IIII", imgs.read(16))
+        test_images = np.fromfile(imgs, dtype=np.uint8).reshape(num, 784)
+
+    return train_images, train_labels, test_images, test_labels
 
 
 # In[2]:
