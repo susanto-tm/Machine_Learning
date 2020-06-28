@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import math
-from neural_network_tut import load_data
+from NN.neural_network_tut import load_data
 
 
 def load_dataset():
