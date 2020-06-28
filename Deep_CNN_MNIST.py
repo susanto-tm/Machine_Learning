@@ -41,5 +41,3 @@ def load_dataset():
 X_train, Y_train, X_test, Y_test = load_dataset()
 
 print(X_train.shape, X_test.shape)
-
-/
